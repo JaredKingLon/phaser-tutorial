@@ -55,14 +55,14 @@ function preload ()
 function create ()
 {
     //  A simple background for our game
-    this.add.image(1920, 1080, 'sky');
+    this.add.image(960, 540, 'sky').setScale(5);
 
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = this.physics.add.staticGroup();
 
     //  Here we create the ground.
     //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
-    platforms.create(960,0, 'ground').setScale(5).refreshBody();
+    platforms.create(960,150, 'ground').setScale(5).refreshBody();
 
     //  Now let's create some ledges
     platforms.create(600, 400, 'ground');
@@ -108,7 +108,7 @@ function create ()
     stars = this.physics.add.group({
         key: 'star',
         repeat: 11,
-        setXY: { x: 12, y: 0, stepX: 70 }
+        setXY: { x: 12, y: 0, stepX: 160 }
     });
 
     stars.children.iterate(function (child) {
@@ -210,6 +210,7 @@ function hitBomb (player, bomb)
 </body>
 
 </html>
+
 
 
 
